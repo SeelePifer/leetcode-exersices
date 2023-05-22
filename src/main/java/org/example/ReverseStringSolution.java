@@ -2,22 +2,23 @@ package org.example;
 
 
 public class ReverseStringSolution {
-    public static char[] reverseString(char[] s) {
-        char[] reverse = new char[s.length];
+    public static void reverseString(char[] s) {
 
-        int i = s.length - 1 ;
-        int j = 0;
+        int right = s.length - 1 ;
+        int left = 0;
 
-        while (j < s.length){
-            reverse[j]=s[i];
-            j++;
-            i--;
+        while (left < right){
+            char c = s[right];
+            s[right] = s[left];
+            s[left] = c;
+
+            left++;
+            right--;
         }
-        return reverse;
 
     }
 
     public static void main(String[] args) {
-        System.out.println(ReverseStringSolution.reverseString(new char[]{'H','a','n','a'}));
+        ReverseStringSolution.reverseString(new char[]{'H','a','n','a'});
     }
 }
